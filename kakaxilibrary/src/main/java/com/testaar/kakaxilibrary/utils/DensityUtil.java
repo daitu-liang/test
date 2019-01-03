@@ -24,7 +24,7 @@ import android.util.DisplayMetrics;
 public class DensityUtil {
 
     /**
-     * 获取高度
+     * getScreenHeight
      *
      * @param context
      * @return
@@ -36,8 +36,7 @@ public class DensityUtil {
     }
 
     /**
-     * 获取宽度
-     *
+     * getScreenWidth
      * @param context
      * @return
      */
@@ -49,14 +48,14 @@ public class DensityUtil {
 
 
     /**
-     * 得到设备的密度
+     * getScreenDensity
      */
     public static float getScreenDensity(Context context) {
         return context.getResources().getDisplayMetrics().density;
     }
 
     /**
-     * 把密度转换为像素
+     * dp2px
      */
     public static int dp2px(Context context, float dipValue) {
         final float scale = getScreenDensity(context);
@@ -64,7 +63,6 @@ public class DensityUtil {
     }
 
     /**
-     * 将像素转换成dp
      *
      * @param context
      * @param pxValue
@@ -76,7 +74,7 @@ public class DensityUtil {
     }
 
     /**
-     * 将sp值转换为px值，保证文字大小不变
+
      *
      * @param context context
      * @param spValue

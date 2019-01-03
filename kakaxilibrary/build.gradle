@@ -37,6 +37,7 @@ buildscript {
     repositories {
         jcenter()
     }
+
     dependencies {
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
@@ -46,13 +47,14 @@ buildscript {
 
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
-group 'com.testaar.kakaxilibrary'
-version '1.0.0'
 
 
-def siteUrl = 'https://github.com/nebulae-pan/OkHttpDownloadManager'   // 项目的主页
-def gitUrl = 'https://github.com/nebulae-pan/OkHttpDownloadManager.git'   // Git仓库的url
-group = "nebulae.library.wheel"            // Maven Group ID for the artifact，
+
+def siteUrl = 'https://github.com/daitu-liang/test'   // 项目的主页
+def gitUrl = 'https://github.com/daitu-liang/test.git'   // Git仓库的url
+group = "com.testaar.kakaxilibrary"            // Maven Group ID for the artifact，
+
+version ='1.9.9'
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
@@ -60,7 +62,7 @@ install {
             project {
                 packaging 'aar'
                 // Add your description here
-                name 'A simple file download manager support by okHttp'     //项目的描述 你可以多写一点
+                name 'kakaxi work show'     //项目的描述 你可以多写一点
                 url siteUrl
                 // Set your license
                 licenses {
@@ -71,9 +73,9 @@ install {
                 }
                 developers {
                     developer {
-                        id 'nebulae-pan'        //填写的一些基本信息
-                        name 'Xinghai Pan'
-                        email 'pxhjlu0929@gmail.com'
+                        id 'daitu-liang1'        //填写的一些基本信息
+                        name 'daitu-liang'
+                        email 'lxliang110@gmail.com'
                     }
                 }
                 scm {
@@ -90,6 +92,7 @@ task sourcesJar(type: Jar) {
     classifier = 'sources'
 }
 task javadoc(type: Javadoc) {
+    options.encoding="utf-8"//解决 JavaDoc 中文注释生成失败的问题
     source = android.sourceSets.main.java.srcDirs
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
@@ -110,74 +113,12 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "maven"          //这个应该是传到maven的仓库的
-        name = "okhttpDownloadManager"    //发布的项目名字
+        name = "kakaxilibrary"    //发布的项目名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
         publish = true
     }
 }
----------------------
 
-//-----------------------------
-//源代码打包任务
-task sourcesJar(type :Jar){
-    classifier 'sources' //分类器 区分其他jar包
-    from android.sourceSets.main.java.srcDirs
-}
-//创建文档生成任务
-task javadoc(type:Javadoc){
-    options.encoding="utf-8"//解决 JavaDoc 中文注释生成失败的问题
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-//配置 工程工件 jar产出的配置
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-
-
-
-
-bintray {
-    user = 'lxliang110@gmail.com'  //用户名
-    key = '10e4d2bd999f06b7a52ebed8c311b62b7a2b425d'  //上一步获取的Api key
-    configurations = ['archives']
-    pkg {
-        repo = 'faith_base' //需要上传的仓库名
-        name = 'kakaxilibrary'  //上传的项目名
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/daitu-liang/Faith.git'//github对应地址，可以不写
-        version {
-            desc = 'fatih come out'
-            released  = new Date()
-            vcsTag = '1.0'
-            attributes = ['gradle-plugin': '1.5']
-        }
-    }
-
-}
-
-
-install {
-    repositories.mavenInstaller {
-        //配置pom文件
-        pom.project {
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
-                }
-            }
-        }
-    }
-}
 

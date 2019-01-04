@@ -26,8 +26,8 @@ public class DensityUtil {
     /**
      * getScreenHeight
      *
-     * @param context
-     * @return
+     * @param context fdv
+     * @return a
      */
     public static int getScreenHeight(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -37,8 +37,8 @@ public class DensityUtil {
 
     /**
      * getScreenWidth
-     * @param context
-     * @return
+     * @param context  dfd
+     * @return v
      */
     public static int getScreenWidth(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -48,7 +48,9 @@ public class DensityUtil {
 
 
     /**
-     * getScreenDensity
+     * d
+     * @param context d
+     * @return d
      */
     public static float getScreenDensity(Context context) {
         return context.getResources().getDisplayMetrics().density;
@@ -56,6 +58,9 @@ public class DensityUtil {
 
     /**
      * dp2px
+     * @param context g
+     * @param dipValue d
+     * @return d
      */
     public static int dp2px(Context context, float dipValue) {
         final float scale = getScreenDensity(context);
@@ -64,9 +69,9 @@ public class DensityUtil {
 
     /**
      *
-     * @param context
-     * @param pxValue
-     * @return
+     * @param context df
+     * @param pxValue d
+     * @return g
      */
     public static int px2dp(Context context, float pxValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
@@ -74,11 +79,10 @@ public class DensityUtil {
     }
 
     /**
-
-     *
+     *ff
      * @param context context
-     * @param spValue
-     * @return
+     * @param spValue  f
+     * @return  f
      */
     public static int sp2px(Context context, float spValue) {
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;

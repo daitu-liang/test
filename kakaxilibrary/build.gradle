@@ -62,7 +62,7 @@ install {
             project {
                 packaging 'aar'
                 // Add your description here
-                name 'kakaxi work show'     //项目的描述 你可以多写一点
+                name 'kakaxilibrary'     //项目的描述 你可以多写一点
                 url siteUrl
                 // Set your license
                 licenses {
@@ -73,9 +73,9 @@ install {
                 }
                 developers {
                     developer {
-                        id 'daitu-liang1'        //填写的一些基本信息
-                        name 'daitu-liang'
-                        email 'lxliang110@gmail.com'
+                        id 'daituliang@gmail.com'        //填写的一些基本信息
+                        name 'daituliang'
+                        email 'daituliang@gmail.com'
                     }
                 }
                 scm {
